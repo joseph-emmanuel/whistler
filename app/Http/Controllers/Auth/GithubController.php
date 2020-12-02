@@ -37,7 +37,7 @@ class GithubController extends Controller
 
         Auth::login($authUser, true);
 
-        return Redirect::to('dashboard');
+        return redirect() -> route('dashboard');
     }
 
     private function findOrCreateUser($githubUser)
