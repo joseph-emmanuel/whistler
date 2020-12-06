@@ -30,7 +30,7 @@ class GithubController extends Controller
         try {
             $user = Socialite::driver('github')->user();
         } catch (Exception $e) {
-            return Redirect::to('auth/github');
+            return redirect() -> route('dashboard');
         }
 
         $authUser = $this->findOrCreateUser($user);
