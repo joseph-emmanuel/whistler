@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,4 @@ Route::get('auth/github', 'App\Http\Controllers\Auth\GithubController@redirectTo
     Route::get('auth/github/callback', 'App\Http\Controllers\Auth\GithubController@handleGithubCallback');
 
 Route::resource('jobs', JobController::class);
+Route::resource('contacts', ContactController::class);
