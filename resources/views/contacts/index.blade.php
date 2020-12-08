@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Laravel 8 CRUD Example from scratch - ItSolutionStuff.com</h2>
+                <h2>Whistler</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Product</a>
+                <a class="btn btn-success" href="{{ route('contacts.create') }}"> Create New Contact</a>
             </div>
         </div>
     </div>
@@ -22,20 +22,28 @@
         <tr>
             <th>No</th>
             <th>Name</th>
-            <th>Details</th>
+            <th>Designation</th>
+            <th>Company_name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Address</th>
             <th width="280px">Action</th>
         </tr>
-        @foreach ($products as $product)
+        @foreach ($contacts as $contact)
         <tr>
             <td>{{ ++$i }}</td>
-            <td>{{ $product->name }}</td>
-            <td>{{ $product->detail }}</td>
+            <td>{{ $contact->contact_name }}</td>
+            <td>{{ $contact->contact_designation }}</td>
+            <td>{{ $contact->contact_company_name }}</td>
+            <td>{{ $contact->contact_email }}</td>
+            <td>{{ $contact->contact_phone_number }}</td>
+            <td>{{ $contact->contact_address }}</td>
             <td>
-                <form action="{{ route('products.destroy',$product->id) }}" method="POST">
+                <form action="{{ route('contacts.destroy',$contact->id) }}" method="POST">
 
-                    <a class="btn btn-info" href="{{ route('products.show',$product->id) }}">Show</a>
+                    <a class="btn btn-info" href="{{ route('contacts.show',$contact->id) }}">Show</a>
 
-                    <a class="btn btn-primary" href="{{ route('products.edit',$product->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('contacts.edit',$contact->id) }}">Edit</a>
 
                     @csrf
                     @method('DELETE')
@@ -47,6 +55,6 @@
         @endforeach
     </table>
 
-    {!! $products->links() !!}
+    {!! $contacts->links() !!}
 
 @endsection
