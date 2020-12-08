@@ -14,7 +14,10 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $contacts = Contact::latest()->paginate(5);
+
+        return view('contacts.index', compact('contacts'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -24,7 +27,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        return view('contacts.create');
     }
 
     /**
@@ -35,7 +38,19 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'contact_name' => 'required',
+            'contact_designation' => 'required',
+            'contact_company_name' => 'required',
+            'contact_email' => 'required',
+            'contact_phone_number' => 'required',
+            'contact_address' => 'required',
+        ]);
+
+        Contact::create($request->all());
+
+        return redirect()->route('contacts.index')
+                        ->with('Success', 'Contact created successfully.');
     }
 
     /**
@@ -46,7 +61,7 @@ class ContactController extends Controller
      */
     public function show(Contact $contact)
     {
-        //
+        return view('contacts.show', compact('contact'));
     }
 
     /**
@@ -57,7 +72,7 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
-        //
+        return view('contacts.edit', compact('contact'));
     }
 
     /**
@@ -69,7 +84,19 @@ class ContactController extends Controller
      */
     public function update(Request $request, Contact $contact)
     {
-        //
+        $request->validate([
+            'contact_name' => 'required',
+            'contact_designation' => 'required',
+            'contact_company_name' => 'required',
+            'contact_email' => 'required',
+            'contact_phone_number' => 'required',
+            'contact_address' => 'required',
+        ]);
+
+        $contact->update($request->all());
+
+        return redirect()->route('contacts.index')
+                        ->with('Success', 'Contact updated successfully.');
     }
 
     /**
@@ -80,6 +107,8 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
-        //
+        $contact->delete();
+        return redirect()->route('contacts.index')
+                        ->with('Success', 'Contact deleted successfully.');
     }
 }
