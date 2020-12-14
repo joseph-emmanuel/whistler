@@ -32,4 +32,4 @@ Route::get('auth/github', 'App\Http\Controllers\Auth\GithubController@redirectTo
 
 Route::resource('jobs', JobController::class);
 Route::resource('contacts', ContactController::class);
-Route::resource('contacts', ApplicationController::class);
+Route::resource('applications', ApplicationController::class);

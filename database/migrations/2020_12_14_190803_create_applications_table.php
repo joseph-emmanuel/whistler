@@ -36,6 +36,8 @@ class CreateApplicationsTable extends Migration
             $table->boolean('transcript')->nullable();
             $table->boolean('reference_document')->nullable();
             $table->string('notes')->nullable();
+            $table->timestamp('updated_at')->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

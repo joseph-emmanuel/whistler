@@ -85,6 +85,6 @@
         @endforeach
     </table>
 
-    {!! $jobs->links() !!}
+    {!! $applications->links() !!}
 
 @endsection
