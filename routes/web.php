@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ApplicationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,4 @@ Route::get('auth/github', 'App\Http\Controllers\Auth\GithubController@redirectTo
 
 Route::resource('jobs', JobController::class);
 Route::resource('contacts', ContactController::class);
+Route::resource('contacts', ApplicationController::class);
