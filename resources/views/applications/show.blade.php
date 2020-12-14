@@ -13,49 +13,132 @@
     </div>
 
     <div class="row">
+       <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>status:</strong>
+                {{ $application->status }}
+            </div>
+        </div>
+
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Title:</strong>
-                {{ $job->job_title }}
+                <strong>application date:</strong>
+                {{ $application->application_date }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>ref no:</strong>
-                {{ $job->job_reference_no }}
+                <strong>company name:</strong>
+                {{ $application->company_name }}
             </div>
         </div>
-
-
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>created:</strong>
-                {{ $job->job_created_at }}
+                <strong>contact name:</strong>
+                {{ $application->contact_name }}
             </div>
-        </div><div class="col-xs-12 col-sm-12 col-md-12">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>end:</strong>
-                {{ $job->job_end_at }}
+                <strong>phone:</strong>
+                {{ $application->phone }}
             </div>
-        </div><div class="col-xs-12 col-sm-12 col-md-12">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>email:</strong>
+                {{ $application->email }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>LinkedIn name:</strong>
+                {{ $application->linkedin_name }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Address:</strong>
+                {{ $application->Address }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>job title:</strong>
+                {{ $application->job_title }}
+           </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>job description:</strong>
+                {{ $application->job_description }}
+           </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>technologies:</strong>
-                {{ $job->job_technologies }}
+                {{ $application->technologies }}
             </div>
-        </div><div class="col-xs-12 col-sm-12 col-md-12">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Salary:</strong>
-                {{ $job->job_salary }}
+                <strong>reference_number:</strong>
+                {{ $application->reference_number }}
             </div>
-        </div><div class="col-xs-12 col-sm-12 col-md-12">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>platform:</strong>
-                {{ $job->job_listed_platform }}
+                <strong>salary:</strong>
+                {{ $application->salary }}
             </div>
-        </div><div class="col-xs-12 col-sm-12 col-md-12">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Description:</strong>
-                {{ $job->job_description }}
+                <strong>ending_date:</strong>
+                {{ $application->ending_date }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>source:</strong>
+                {{ $application->source }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>fit value (between 1 and 5):</strong>
+                {{ $application->fit_value }}
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>resume (between 0 and 1):</strong>
+                {{ $application->resume }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>cover_letter (between 0 and 1):</strong>
+                {{ $application->cover_letter }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>transcript (between 0 and 1):</strong>
+                {{ $application->transcript }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>reference_document (between 0 and 1):</strong>
+                {{ $application->reference_document }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>notes:</strong>
+                {{ $application->notes }}
             </div>
         </div>
     </div>
