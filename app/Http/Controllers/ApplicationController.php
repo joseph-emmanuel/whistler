@@ -14,7 +14,10 @@ class ApplicationController extends Controller
      */
     public function index()
     {
-        //
+        $applications = Application::latest()->paginate(5);
+
+        return view('applications.index', compact('applications'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -24,7 +27,7 @@ class ApplicationController extends Controller
      */
     public function create()
     {
-        //
+        return view('applications.create');
     }
 
     /**
@@ -35,7 +38,35 @@ class ApplicationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+
+            'status' => 'required',
+            'application_date' => 'required',
+            'company_name' => 'required',
+            // 'contact_name' => 'required',
+            // 'phone' => 'required',
+            // 'email' => 'required',
+            // 'linkedin_name' => 'required',
+            // 'Address' => 'required',
+            'job_title' => 'required',
+            'job_description' => 'required',
+            'technologies' => 'required',
+            // 'reference_number' => 'required',
+            // 'salary' => 'required',
+            // 'ending_date' => 'required',
+            'source' => 'required',
+            'fit_value' => 'required',
+            'resume' => 'required',
+            'cover_letter' => 'required',
+            'transcript' => 'required',
+            'reference_document' => 'required',
+            'notes' => 'required',
+        ]);
+
+        Application::create($request->all());
+
+        return redirect()->route('applications.index')
+                        ->with('success', 'Application created successfully.');
     }
 
     /**
@@ -46,7 +77,7 @@ class ApplicationController extends Controller
      */
     public function show(Application $application)
     {
-        //
+        return view('applications.show', compact('application'));
     }
 
     /**
@@ -57,7 +88,7 @@ class ApplicationController extends Controller
      */
     public function edit(Application $application)
     {
-        //
+        return view('applications.edit', compact('application'));
     }
 
     /**
@@ -69,7 +100,35 @@ class ApplicationController extends Controller
      */
     public function update(Request $request, Application $application)
     {
-        //
+        $request->validate([
+
+            'status' => 'required',
+            'application_date' => 'required',
+            'company_name' => 'required',
+            // 'contact_name' => 'required',
+            // 'phone' => 'required',
+            // 'email' => 'required',
+            // 'linkedin_name' => 'required',
+            // 'Address' => 'required',
+            'job_title' => 'required',
+            'job_description' => 'required',
+            'technologies' => 'required',
+            // 'reference_number' => 'required',
+            // 'salary' => 'required',
+            // 'ending_date' => 'required',
+            'source' => 'required',
+            'fit_value' => 'required',
+            'resume' => 'required',
+            'cover_letter' => 'required',
+            'transcript' => 'required',
+            'reference_document' => 'required',
+            'notes' => 'required',
+        ]);
+
+        Application::update($request->all());
+
+        return redirect()->route('applications.index')
+                        ->with('success', 'Application updated successfully.');
     }
 
     /**
@@ -80,6 +139,9 @@ class ApplicationController extends Controller
      */
     public function destroy(Application $application)
     {
-        //
+        $application->delete();
+
+        return redirect()->route('applications.index')
+                        ->with('success', 'Application deleted successfully');
     }
 }
