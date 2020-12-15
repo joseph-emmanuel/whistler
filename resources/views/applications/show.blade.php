@@ -7,7 +7,7 @@
                 <h2> Show Job</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('jobs.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('applications.index') }}"> Back</a>
             </div>
         </div>
     </div>

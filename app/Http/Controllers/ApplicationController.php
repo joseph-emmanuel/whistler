@@ -101,21 +101,20 @@ class ApplicationController extends Controller
     public function update(Request $request, Application $application)
     {
         $request->validate([
-
             'status' => 'required',
             'application_date' => 'required',
             'company_name' => 'required',
-            // 'contact_name' => 'required',
-            // 'phone' => 'required',
-            // 'email' => 'required',
-            // 'linkedin_name' => 'required',
-            // 'Address' => 'required',
+            'contact_name' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'linkedin_name' => 'required',
+            'Address' => 'required',
             'job_title' => 'required',
             'job_description' => 'required',
             'technologies' => 'required',
-            // 'reference_number' => 'required',
-            // 'salary' => 'required',
-            // 'ending_date' => 'required',
+            'reference_number' => 'required',
+            'salary' => 'required',
+            'ending_date' => 'required',
             'source' => 'required',
             'fit_value' => 'required',
             'resume' => 'required',
@@ -125,8 +124,7 @@ class ApplicationController extends Controller
             'notes' => 'required',
         ]);
 
-        Application::update($request->all());
-
+        $application->update($request->all());
         return redirect()->route('applications.index')
                         ->with('success', 'Application updated successfully.');
     }
