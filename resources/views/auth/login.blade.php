@@ -1,11 +1,36 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
 
-        <x-jet-validation-errors class="mb-4" />
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Whistler</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link href="css/login.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column align-content-stretch">
+  <div class="signup-page d-flex flex-wrap align-content-stretch">
+    <div class="col-lg-6 logo-col d-flex flex-column justify-content-center align-items-center">
+      <div class="d-flex flex-column justify-content-center align-items-center p-5">
+        <a href="#" class="mb-5 logo">
+          <img src="img/logo.jpg" alt="Whistler" class="img-fluid">
+        </a>
+        <h1 class="orange mb-4">Ground Control for your job hunt</h1>
+        <p class="orange-medium mb-5 font-ink lead mb-4">Organize your job search and discover view opportunities, all in one place</p>
+      </div>
+    </div>
+
+
+    @if (session('status'))
+            <div class="mb-4 font-medium text-sm text-green-600">
+                {{ session('status') }}
+            </div>
+        @endif
+        <div class="col-lg-6 form-col align-content-stretch p-5">
+        <div class="d-flex flex-column h-100 justify-content-center align-items-center p-4">
         @if (session('status'))
             <div class="mb-4 font-medium text-sm text-green-600">
                 {{ session('status') }}
@@ -15,14 +40,14 @@
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
-            <div>
-                <x-jet-label value="{{ __('Email') }}" />
-                <x-jet-input class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+            <div class="input-group form-group mb-4">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                <input class="form-control" type="email" name="email" :value="old('email')"/>
             </div>
 
-            <div class="mt-4">
-                <x-jet-label value="{{ __('Password') }}" />
-                <x-jet-input class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+            <div class="input-group form-group mb-4">
+            <span class="input-group-addon"><i class="fa fa-lock fa-fw"></i></span>
+                <x-jet-input class="form-control" type="password" name="password" required autocomplete="current-password" />
             </div>
 
             <div class="block mt-4">
@@ -39,14 +64,16 @@
                     </a>
                 @endif
 
-                <x-jet-button class="ml-4">
+                <button class="btn btn-success">
                     {{ __('Login') }}
-                </x-jet-button>
+                </button>
 
-                <a href="{{ url('auth/github') }}" style="margin-top: 0px !important;background: green;color: #ffffff;padding: 5px;border-radius:7px;" class="ml-2">
-                  <strong>Login With Github</strong>
+                <a href="{{ url('auth/github') }}" class="btn btn-success">GitHub
                 </a>
             </div>
         </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
+        </div>
+</div>
+  </div>
+</body>
+</html>
