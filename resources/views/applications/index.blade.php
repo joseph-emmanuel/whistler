@@ -7,10 +7,11 @@
                 <h2>Whistler</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('applications.create') }}"> Create New Application</a>
+                <a class="btn btn-success" href="{{ route('profile.show') }}"> <i class="fa fa-user-circle-o fa-fw"></i></a>
             </div>
         </div>
     </div>
+
 
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
@@ -18,72 +19,206 @@
         </div>
     @endif
 
-    <table class="table table-bordered">
-        <tr>
-            <th>No</th>
-            <th>status</th>
-            <th>application_date</th>
-            <th>company_name</th>
-            <th>contact_name</th>
-            <th>phone</th>
-            <th>email</th>
-            <th>linkedin_name</th>
-            <th>Address</th>
-            <th>job_title</th>
-            <th>job_description</th>
-            <th>technologies</th>
-            <th>reference_number</th>
-            <th>salary</th>
-            <th>ending_date</th>
-            <th>source</th>
-            <th>fit_value</th>
-            <th>resume</th>
-            <th>cover_letter</th>
-            <th>transcript</th>
-            <th>reference_document</th>
-            <th>notes</th>
-            <th width="280px">Action</th>
-        </tr>
+
+
+
+
+
+
+
+
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Whistler</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="dist/css/app.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column align-content-stretch app-main">
+  <header>
+    <a href="#" class="header-logo">
+      <img src="./dist/img/logo.jpg" alt="Whistler" class="img-fluid">
+    </a>
+  </header>
+  <nav class="menu-bar">
+    <div class="d-flex justify-content-between">
+
+      <div class="d-flex align-content-center">
+
+      </div>
+
+      <div class="d-flex align-content-center">
+        <a href="{{ route('dashboard') }}" class="menu-item">
+          <i class="fa fa-home fa-fw mr-1"></i>
+          <span>Dash Board</span>
+        </a>
+        <a href="{{ route('contacts.index') }}" class="menu-item">
+          <i class="fa fa-phone fa-fw mr-1"></i>
+          <span>Contacts</span>
+        </a>
+        <a href="{{ route('jobs.index') }}" class="menu-item">
+          <i class="fa fa-suitcase fa-fw mr-1"></i>
+          <span>Jobs</span>
+        </a>
+        <a href="#" class="menu-item">
+          <i class="fa fa-backward fa-fw mr-1"></i>
+          <span>Back</span>
+        </a>
+
+      </div>
+
+      <div class="d-flex align-content-center">
+        <a href="#" class="menu-item">
+          <i class="fa fa-star fa-fw mr-1 color-gold"></i>
+          <span>Upgrade</span>
+        </a>
+      </div>
+
+    </div>
+  </nav>
+  <div class="board d-flex align-content-stretch flex-wrap">
+
+
+    <div class="stages col">
+    <div class="stage purple-cards">
+        <div class="stage-header">
+          <div class="title">
+            <h3><i class="fa fa-archive fa-fw mr-1"></i> Wishlist</h3>
+            <span class="sort"><i class="fa fa-tasks fa-fw"></i></span>
+          </div>
+          <a href="{{ route('applications.create') }}" class="plus">
+          <i class="fa fa-plus fa-fw mr-1"></i>
+        </a>
+        </div>
         @foreach ($applications as $application)
-        <tr>
-            <td>{{ ++$i }}</td>
-            <td>{{ $application->status }}</td>
-            <td>{{ $application->application_date }}</td>
-            <td>{{ $application->company_name }}</td>
-            <td>{{ $application->contact_name }}</td>
-            <td>{{ $application->phone }}</td>
-            <td>{{ $application->email }}</td>
-            <td>{{ $application->linkedin_name }}</td>
-            <td>{{ $application->Address }}</td>
-            <td>{{ $application->job_title }}</td>
-            <td>{{ $application->job_description }}</td>
-            <td>{{ $application->technologies }}</td>
-            <td>{{ $application->reference_number }}</td>
-            <td>{{ $application->salary }}</td>
-            <td>{{ $application->ending_date }}</td>
-            <td>{{ $application->source }}</td>
-            <td>{{ $application->fit_value }}</td>
-            <td>{{ $application->resume }}</td>
-            <td>{{ $application->cover_letter }}</td>
-            <td>{{ $application->transcript }}</td>
-            <td>{{ $application->reference_document }}</td>
-            <td>{{ $application->notes }}</td>
-        <td>
-                <form action="{{ route('applications.destroy',$application->id) }}" method="POST">
+        @if($application->status=="1")
 
-                    <a class="btn btn-info" href="{{ route('applications.show',$application->id) }}">Show</a>
+        <div class="stage-card">
+          <h3>{{ $application->job_title }}</h3>
+          <p>{{ $application->company_name }}</p>
+          <form action="{{ route('applications.destroy',$application->id) }}" method="POST">
 
-                    <a class="btn btn-primary" href="{{ route('applications.edit',$application->id) }}">Edit</a>
+<a class="btn btn-info" href="{{ route('applications.show',$application->id) }}">Show</a>
 
-                    @csrf
-                    @method('DELETE')
+<a class="btn btn-primary" href="{{ route('applications.edit',$application->id) }}">Edit</a>
 
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </td>
-        </tr>
+@csrf
+@method('DELETE')
+
+<button type="submit" class="btn btn-danger">Delete</button>
+</form>
+        </div>
+
+        @endif
         @endforeach
-    </table>
+
+
+
+
+
+      </div>
+
+      <div class="stage green-cards">
+        <div class="stage-header">
+          <div class="title">
+            <h3><i class="fa fa-folder fa-fw mr-1"></i> Applied</h3>
+            <span class="sort"><i class="fa fa-tasks fa-fw"></i></span>
+          </div>
+          <a href="{{ route('applications.create') }}" class="plus">
+          <i class="fa fa-plus fa-fw mr-1"></i>
+        </a>
+        </div>
+
+
+        @foreach ($applications as $application)
+        @if($application->status=="2")
+
+        <div class="stage-card">
+          <h3>{{ $application->job_title }}</h3>
+          <p>{{ $application->company_name }}</p>
+          <form action="{{ route('applications.destroy',$application->id) }}" method="POST">
+
+<a class="btn btn-info" href="{{ route('applications.show',$application->id) }}">Show</a>
+
+<a class="btn btn-primary" href="{{ route('applications.edit',$application->id) }}">Edit</a>
+
+@csrf
+@method('DELETE')
+
+<button type="submit" class="btn btn-danger">Delete</button>
+</form>
+        </div>
+
+        @endif
+        @endforeach
+
+
+
+      </div>
+
+      <div class="stage orange-cards">
+        <div class="stage-header">
+          <div class="title">
+            <h3><i class="fa fa-lock fa-fw mr-1"></i> Interview</h3>
+            <span class="sort"><i class="fa fa-tasks fa-fw"></i></span>
+          </div>
+          <a href="{{ route('applications.create') }}" class="plus">
+          <i class="fa fa-plus fa-fw mr-1"></i>
+        </a>
+        </div>
+
+        @foreach ($applications as $application)
+        @if($application->status=="3")
+
+        <div class="stage-card">
+          <h3>{{ $application->job_title }}</h3>
+          <p>{{ $application->company_name }}</p>
+          <form action="{{ route('applications.destroy',$application->id) }}" method="POST">
+
+<a class="btn btn-info" href="{{ route('applications.show',$application->id) }}">Show</a>
+
+<a class="btn btn-primary" href="{{ route('applications.edit',$application->id) }}">Edit</a>
+
+@csrf
+@method('DELETE')
+
+<button type="submit" class="btn btn-danger">Delete</button>
+</form>
+        </div>
+
+        @endif
+        @endforeach
+
+
+
+      </div>
+
+    </div>
+
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     {!! $applications->links() !!}
 
