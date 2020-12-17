@@ -68,7 +68,8 @@
                     {{ __('Login') }}
                 </button>
 
-                <a href="{{ url('auth/github') }}" class="btn btn-success">GitHub
+                <a href="{{ url('auth/github') }}" class="btn btn-success">
+                <i class="fa fa-github"></i>GitHub
                 </a>
             </div>
         </form>

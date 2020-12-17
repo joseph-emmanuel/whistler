@@ -30,7 +30,11 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>status:</strong>
-                <input type="text" name="status" class="form-control" placeholder="status">
+                <select name="status" class="form-control" placeholder="status">
+                 <option value="1">WISHLIST</option>
+                 <option value="2">APPLIED</option>
+                 <option value="3">INTERVIEW</option>
+                </select>
             </div>
         </div>
 
