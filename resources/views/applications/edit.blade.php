@@ -126,32 +126,50 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>fit value (between 1 and 5):</strong>
-                <input type="number" name="fit_value" value="{{ $application->fit_value }}" min="1" max="5" class="form-control" placeholder="fit_value">
+                <select name="fit_value" class="form-control" placeholder="between 1 and 5">
+                 <option value="1">1</option>
+                 <option value="2">2</option>
+                 <option value="3">3</option>
+                 <option value="4">4</option>
+                 <option value="5">5</option>
+                </select>
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>resume (between 0 and 1):</strong>
-                <input type="number" name="resume"value="{{ $application->resume }}" min="0" max="1" class="form-control" placeholder="resume">
+                <strong>resume submitted:</strong>
+                <select name="resume" class="form-control" placeholder="between 1 and 5">
+                 <option value="1">Yes</option>
+                 <option value="0">No</option>
+                </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>cover_letter (between 0 and 1):</strong>
-                <input type="number" name="cover_letter" value="{{ $application->cover_letter }}"  min="0" max="1" class="form-control" placeholder="cover letter">
+                <strong>cover letter submitted:</strong>
+                <select name="cover_letter" class="form-control" placeholder="between 1 and 5">
+                 <option value="1">Yes</option>
+                 <option value="0">No</option>
+                </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>transcript (between 0 and 1):</strong>
-                <input type="number" name="transcript" value="{{ $application->transcript }}"  min="0" max="1" class="form-control" placeholder="transcript">
+                <strong>transcript submitted:</strong>
+                <select name="transcript" class="form-control" placeholder="between 1 and 5">
+                 <option value="1">Yes</option>
+                 <option value="0">No</option>
+                </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>reference_document (between 0 and 1):</strong>
-                <input type="number" name="reference_document"value="{{ $application->reference_document }}"	  min="0" max="1" class="form-control" placeholder="reference_document">
+                <strong>reference document submitted:</strong>
+                <select name="reference_document" class="form-control" placeholder="between 1 and 5">
+                 <option value="1">Yes</option>
+                 <option value="0">No</option>
+                </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
